@@ -1,9 +1,10 @@
 <h1 class="mb-2 mt-4 text-4xl">Add a new book 📖</h1><br>
 
+
 <%= form_with(model: @book) do |form| %>
   <% if @book.errors.any? %>
-    <div id="error_explanation">
-      <p><%= pluralize(@book.errors.count, "error") %>:</p>
+    <div id="error_explanation" class="text-red-500 mb-3">
+      <p class="text-lg font-medium"><%= pluralize(@book.errors.count, "error") %>:</p>
       <ul>
         <% @book.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -22,7 +23,7 @@
     <%= form.text_field :title, class: "form-control", placeholder: "Book Title"%>
   </div>
 
-  <div class="form-label">
+  <div class="form-label mr-5">
     <%= form.label :Category, class:"text-xl mb-3 mt-2" %>
     <div>
     <%= form.radio_button :genre, "art", class:"mb-3" %>
@@ -44,7 +45,10 @@
     <%= form.label :genre_history, "History" %><br>
 
     <%= form.radio_button :genre, "law", class:"mb-3" %>
-    <%= form.label :genre_law, "Law and Economics" %>
+    <%= form.label :genre_law, "Law and Economics" %><br>
+
+    <%= form.radio_button :genre, "self", class:"mb-3" %>
+    <%= form.label :genre_self, "Self-Development" %>
     </div>
     
   </div>
