@@ -1,14 +1,21 @@
-<p>
-  <strong>Author</strong>
-  <%= @book.author %>
-</p>
+<h1 class="mb-5 mt-4 text-4xl">Book List 🔖</h1>
 
-<p>
-  <strong>Title</strong>
-  <%= @book.title %>
-</p>
 
-<p>
-  <strong>Category</strong>
-  <%= @book.genre %>
-</p>
+<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+  <div class="card-header"><h5>Author: <%= @book.author %></h5></div>
+  <div class="card-body">
+    <h5 class="card-title">Title: <%= @book.title %></h5>
+    <p class="card-text">Category: <%= @book.genre %></p>
+  </div>
+</div>
+
+</div>
+
+<div class="ml-24">
+  <%= link_to 'Add a book', books_new_path, class: "btn btn-primary mb-3 mg-3 mr-5" %>
+  <%= link_to 'Home', root_path, class: "btn btn-primary mb-3"%>
+</div>
+
+
+
+

@@ -1,25 +1,30 @@
-<h1>Recommend a good book! </h1>
+<h1 class="mb-3 mt-4 text-4xl">Recommend a good book! </h1>
 
-<table class="table">
+<%= link_to 'Add new book', books_new_path, class: "btn btn-success mb-3" %>
+
+<table class="table table-hover table-bordered">
   
   <thead class="table-dark">
     <tr>
-      <th scope="col">#</th>
+      
       <th scope="col">Author</th>
       <th scope="col">Title</th>
       <th scope="col">Category</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <% @books.each do |book| %>
     <tr>
-      <td><%= book.id %></td>
+      
       <td><%= book.author %></td>
       <td><%= book.title %></td>
       <td><%= book.genre %></td>
-      <td><%= link_to 'Show', book_path(book) %></td>
-      <td><%= link_to 'Edit', edit_book_path(book) %></td>
-      <td><%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: 'Are you sure you want to remove this?'} %></td>
+      <td class="text-blue-600 hover:text-blue-300"><%= link_to 'Show', book_path(book) %></td>
+      <td class="text-yellow-600 hover:text-yellow-300"><%= link_to 'Edit', edit_book_path(book) %></td>
+      <td class="text-red-600 hover:text-red-300"><%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: 'Are you sure you want to remove this?'} %></td>
     </tr>
     <% end %>
   </tbody>

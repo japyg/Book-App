@@ -1,4 +1,4 @@
-<h1>Add a new book!</h1>
+<h1 class="mb-2 mt-4 text-4xl">Add a new book 📖</h1><br>
 
 <%= form_with(model: @book) do |form| %>
   <% if @book.errors.any? %>
@@ -12,23 +12,49 @@
      </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :author %><br>
-    <%= form.text_field :author %>
+  <div class="form-label">
+    
+    <%= form.text_field :author, class: "form-control", placeholder: "Author's Full Name" %>
   </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="form-label">
+    
+    <%= form.text_field :title, class: "form-control", placeholder: "Book Title"%>
   </div>
 
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :genre %>
+  <div class="form-label">
+    <%= form.label :Category, class:"text-xl mb-3 mt-2" %>
+    <div>
+    <%= form.radio_button :genre, "art", class:"mb-3" %>
+    <%= form.label :genre_art, "Arts and Sciences" %><br>
+
+    <%= form.radio_button :genre, "finance", class:"mb-3" %>
+    <%= form.label :genre_finance, "Business and Finance" %><br>
+
+    <%= form.radio_button :genre, "child", class:"mb-3" %>
+    <%= form.label :genre_child, "Children's Books" %><br>
+    
+    <%= form.radio_button :genre, "classics", class:"mb-3" %>
+    <%= form.label :genre_classics, "Classics" %><br>
+
+    <%= form.radio_button :genre, "fiction", class:"mb-3" %>
+    <%= form.label :genre_fiction, "Fiction" %><br>
+
+    <%= form.radio_button :genre, "history", class:"mb-3" %>
+    <%= form.label :genre_history, "History" %><br>
+
+    <%= form.radio_button :genre, "law", class:"mb-3" %>
+    <%= form.label :genre_law, "Law and Economics" %>
+    </div>
+    
   </div>
 
   <div class="actions">
+
+    <%= form.submit :Add, class: "btn btn-primary mb-3" %>
+
+    
   
-    <%= form.submit :Add %>
+    
   </div>
 <% end %>

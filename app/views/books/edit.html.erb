@@ -1,4 +1,4 @@
-<h1>Edit book recommendations</h1>
+<h1 class="mb-3 mt-4 text-4xl">Edit book entries ✍️</h1>
 
 <%= form_with(model: @book) do |form| %>
   <% if @book.errors.any? %>
@@ -12,24 +12,40 @@
       </div>
     <% end %>
 
+  <div class="form-label">
+    <%= form.label :Author, class:"text-lg font-medium" %>
+    <%= form.text_field :author, class: "form-control" %>
+  </div>
+
+  <div class="form-label">
+    <%= form.label :Title, class:"text-lg font-medium" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :Category, class:"text-lg font-medium mt-2 mb-2" %><br>
+    <%= form.radio_button :genre, "art", class:"mb-3" %>
+    <%= form.label :genre_art, "Arts and Sciences" %><br>
+
+    <%= form.radio_button :genre, "finance", class:"mb-3" %>
+    <%= form.label :genre_finance, "Business and Finance" %><br>
+
+    <%= form.radio_button :genre, "child", class:"mb-3" %>
+    <%= form.label :genre_child, "Children's Books" %><br>
+    
+    <%= form.radio_button :genre, "classics", class:"mb-3" %>
+    <%= form.label :genre_classics, "Classics" %><br>
+
+    <%= form.radio_button :genre, "fiction", class:"mb-3" %>
+    <%= form.label :genre_fiction, "Fiction" %><br>
+
+    <%= form.radio_button :genre, "history", class:"mb-3" %>
+    <%= form.label :genre_history, "History" %><br>
+
+    <%= form.radio_button :genre, "law", class:"mb-3" %>
+    <%= form.label :genre_law, "Law and Economics" %>
+    </div>
   
-  <div class="field">
-    <%= form.label :author %><br>
-    <%= form.text_field :author %>
-  </div>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :genre %>
-  </div>
-
-  <div class="actions">
-  
-    <%= form.submit :Edit %>
+    <%= form.submit :Edit, class: "btn btn-primary mb-3"%>
   </div>
 <% end %>
